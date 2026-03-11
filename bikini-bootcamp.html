@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bikini Bootcamp | Fitness Retreat in Tulum, Mexico</title>
+<meta name="description" content="Bikini Bootcamp at Amansala Tulum. A fitness vacation with purpose — yoga, beach workouts, spa, healthy cuisine, and transformation on the Caribbean Sea."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+@import url('https://fonts.cdnfonts.com/css/archetype-bayer-universal');
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --cream:#F5F0E6;--sand:#EDE2D2;--sand-deep:#E4D5C0;
+  --terracotta:#BDA68B;--espresso:#574B3F;--nearblack:#362F28;
+  --terra-50:rgba(189,166,139,.5);--terra-20:rgba(189,166,139,.2);
+  --cream-70:rgba(245,240,230,.7);--cream-50:rgba(245,240,230,.5);
+  --dark-08:rgba(54,47,40,.08);--gold:#C4963A;
+  --font-bayer:'Archetype Bayer Universal','Futura','Century Gothic',sans-serif;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'Jost',sans-serif;
+  --max-w:1200px;--gutter:52px;
+}
+
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);color:var(--nearblack);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;height:auto;}
+
+/* ── NAV ─────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 52px;transition:background .4s,padding .4s,box-shadow .4s;}
+nav.scrolled{background:rgba(245,240,230,.96);backdrop-filter:blur(8px);padding:16px 52px;box-shadow:0 1px 20px rgba(54,47,40,.07);}
+.nav-logo{font-family:var(--font-bayer);font-size:20px;font-weight:400;letter-spacing:.12em;color:var(--cream);text-decoration:none;text-transform:lowercase;transition:color .3s;}
+nav.scrolled .nav-logo{color:var(--nearblack);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:var(--font-bayer);font-size:9px;letter-spacing:.3em;text-transform:lowercase;color:rgba(245,240,230,.7);text-decoration:none;transition:color .3s;}
+.nav-links a.active{color:var(--terracotta);}
+nav.scrolled .nav-links a{color:rgba(54,47,40,.55);}
+nav.scrolled .nav-links a.active{color:var(--terracotta);}
+.nav-links a:hover{color:var(--cream);}
+nav.scrolled .nav-links a:hover{color:var(--nearblack);}
+.nav-book{font-family:var(--font-bayer);font-size:9px;letter-spacing:.25em;text-transform:lowercase;padding:9px 22px;border:1px solid rgba(245,240,230,.5);color:var(--cream);text-decoration:none;transition:all .3s;}
+nav.scrolled .nav-book{border-color:rgba(87,75,63,.3);color:var(--espresso);}
+.nav-book:hover{background:var(--terracotta);color:var(--nearblack);border-color:var(--terracotta);}
+
+/* ── ANIMATIONS ──────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.fade-up.d1{transition-delay:.1s;}
+.fade-up.d2{transition-delay:.2s;}
+.fade-up.d3{transition-delay:.3s;}
+.fade-up.d4{transition-delay:.4s;}
+.fade-up.d5{transition-delay:.5s;}
+
+/* ── SHARED ──────────────────────────────────── */
+.section-label{font-family:var(--font-bayer);font-size:9px;letter-spacing:.35em;text-transform:lowercase;color:var(--terracotta);margin-bottom:18px;}
+.section-headline{font-family:var(--font-serif);font-weight:300;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;color:var(--nearblack);margin-bottom:24px;}
+.section-body{font-family:var(--font-sans);font-weight:300;font-size:1rem;line-height:1.85;color:var(--espresso);max-width:520px;}
+.section-pad{padding:120px var(--gutter);}
+.decorative-line{width:48px;height:1px;background:var(--terra-20);margin-bottom:20px;}
+.text-center{text-align:center;}
+
+/* ── HERO ────────────────────────────────────── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('mothersday-images/yoga-class.jpg') center/cover no-repeat;transform:scale(1.05);filter:saturate(1.15) brightness(1.05);animation:heroZoom 18s ease-out forwards;}
+@keyframes heroZoom{to{transform:scale(1);}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(54,47,40,.15) 0%,rgba(54,47,40,.25) 40%,rgba(54,47,40,.6) 100%);}
+.hero-content{position:relative;z-index:2;max-width:860px;padding:0 24px;}
+.hero-label{font-family:var(--font-bayer);font-size:9px;letter-spacing:.4em;text-transform:lowercase;color:var(--terracotta);margin-bottom:28px;opacity:0;animation:fadeIn 1s .3s ease forwards;}
+.hero-headline{font-family:var(--font-bayer);font-size:clamp(2.4rem,6vw,4.8rem);font-weight:400;letter-spacing:.06em;text-transform:lowercase;color:var(--cream);line-height:1.1;margin-bottom:6px;opacity:0;animation:fadeIn 1s .5s ease forwards;}
+.hero-headline-serif{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(1.4rem,3.5vw,2.6rem);color:var(--sand-deep);display:block;margin-top:8px;letter-spacing:.02em;text-transform:none;}
+.hero-sub{font-family:var(--font-sans);font-weight:200;font-size:clamp(.95rem,1.8vw,1.15rem);letter-spacing:.08em;color:var(--cream-70);margin-top:22px;opacity:0;animation:fadeIn 1s .8s ease forwards;}
+.hero-btns{display:flex;gap:18px;justify-content:center;margin-top:40px;flex-wrap:wrap;opacity:0;animation:fadeIn 1s 1.1s ease forwards;}
+.btn-primary,.btn-secondary{font-family:var(--font-bayer);font-size:9px;letter-spacing:.3em;text-transform:lowercase;padding:14px 32px;text-decoration:none;transition:all .35s ease;}
+.btn-primary{background:var(--terracotta);color:var(--nearblack);border:1px solid var(--terracotta);}
+.btn-primary:hover{background:var(--gold);border-color:var(--gold);color:var(--nearblack);}
+.btn-secondary{border:1px solid var(--cream-50);color:var(--cream);}
+.btn-secondary:hover{background:rgba(245,240,230,.15);border-color:var(--cream);}
+@keyframes fadeIn{to{opacity:1;}}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;opacity:0;animation:fadeIn 1s 1.5s ease forwards;}
+.hero-scroll span{display:block;width:1px;height:40px;background:linear-gradient(180deg,var(--terracotta),transparent);margin:0 auto 8px;}
+.hero-scroll small{font-family:var(--font-bayer);font-size:7px;letter-spacing:.35em;text-transform:lowercase;color:var(--cream-50);}
+
+/* ── TWO COL ─────────────────────────────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:var(--max-w);margin:0 auto;}
+.two-col-img{position:relative;overflow:hidden;border-radius:2px;}
+.two-col-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;}
+.two-col-img:hover img{transform:scale(1.03);}
+.two-col-img::after{content:'';position:absolute;inset:0;border:1px solid var(--terra-20);pointer-events:none;}
+.two-col.reverse{direction:rtl;}
+.two-col.reverse>*{direction:ltr;}
+
+/* ── PULL QUOTE ──────────────────────────────── */
+.pull-quote{padding:80px var(--gutter);text-align:center;}
+.pull-quote-text{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.45;max-width:800px;margin:0 auto;}
+.pull-quote-text em{font-style:normal;color:var(--terracotta);}
+
+/* ── PILLARS ─────────────────────────────────── */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:100%;}
+.pillar{position:relative;overflow:hidden;height:520px;cursor:pointer;}
+.pillar img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;filter:saturate(1.1);}
+.pillar:hover img{transform:scale(1.06);}
+.pillar-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(54,47,40,.7) 0%,rgba(54,47,40,.1) 50%);transition:background .4s;}
+.pillar:hover .pillar-overlay{background:linear-gradient(0deg,rgba(54,47,40,.8) 0%,rgba(54,47,40,.2) 50%);}
+.pillar-content{position:absolute;bottom:0;left:0;right:0;padding:40px 32px;z-index:2;}
+.pillar-title{font-family:var(--font-bayer);font-size:clamp(.7rem,1.2vw,.9rem);letter-spacing:.25em;text-transform:lowercase;color:var(--terracotta);margin-bottom:10px;}
+.pillar-headline{font-family:var(--font-serif);font-weight:300;font-size:clamp(1.4rem,2.5vw,2rem);color:var(--cream);line-height:1.25;margin-bottom:10px;}
+.pillar-desc{font-family:var(--font-sans);font-weight:300;font-size:.88rem;line-height:1.65;color:rgba(245,240,230,.7);}
+
+/* ── SCHEDULE ────────────────────────────────── */
+.schedule-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:var(--max-w);margin:0 auto;}
+.schedule-block{padding:48px 40px;border-bottom:1px solid var(--terra-20);}
+.schedule-block:nth-child(odd){border-right:1px solid var(--terra-20);}
+.schedule-time{font-family:var(--font-bayer);font-size:11px;letter-spacing:.2em;color:var(--terracotta);margin-bottom:8px;text-transform:lowercase;}
+.schedule-activity{font-family:var(--font-serif);font-weight:300;font-size:1.35rem;color:var(--nearblack);margin-bottom:6px;}
+.schedule-desc{font-family:var(--font-sans);font-weight:300;font-size:.85rem;line-height:1.65;color:var(--espresso);opacity:.75;}
+
+/* ── INCLUDED CARDS ──────────────────────────── */
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:var(--max-w);margin:0 auto;}
+.inc-card{background:var(--cream);padding:44px 28px;text-align:center;border-radius:2px;transition:transform .4s ease,box-shadow .4s ease;}
+.inc-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(54,47,40,.08);}
+.inc-icon{font-size:2rem;margin-bottom:18px;display:block;}
+.inc-title{font-family:var(--font-serif);font-weight:300;font-size:1.25rem;color:var(--nearblack);margin-bottom:10px;}
+.inc-desc{font-family:var(--font-sans);font-weight:300;font-size:.85rem;line-height:1.7;color:var(--espresso);opacity:.8;}
+
+/* ── DATES ───────────────────────────────────── */
+.dates-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:var(--max-w);margin:0 auto;}
+.date-chip{font-family:var(--font-bayer);font-size:10px;letter-spacing:.15em;text-transform:lowercase;padding:14px 28px;border:1px solid var(--terra-20);color:var(--espresso);background:var(--cream);transition:all .3s ease;text-decoration:none;cursor:pointer;}
+.date-chip:hover{background:var(--terracotta);color:var(--nearblack);border-color:var(--terracotta);}
+
+/* ── TESTIMONIALS ────────────────────────────── */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:var(--max-w);margin:0 auto;}
+.test-card{background:var(--sand);padding:48px 32px;border-radius:2px;position:relative;}
+.test-card::before{content:'\201C';font-family:var(--font-serif);font-size:4rem;line-height:1;color:var(--terra-20);position:absolute;top:20px;left:28px;}
+.test-quote{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:1.05rem;line-height:1.65;color:var(--espresso);margin-bottom:20px;padding-top:16px;}
+.test-author{font-family:var(--font-bayer);font-size:8px;letter-spacing:.2em;text-transform:lowercase;color:var(--terracotta);}
+
+/* ── FULL IMAGE ──────────────────────────────── */
+.full-img{position:relative;height:400px;overflow:hidden;}
+.full-img img{width:100%;height:100%;object-fit:cover;}
+.full-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(54,47,40,.05) 0%,rgba(54,47,40,.3) 100%);}
+.full-img-text{position:absolute;bottom:40px;left:0;right:0;text-align:center;z-index:2;}
+.full-img-text p{font-family:var(--font-bayer);font-size:clamp(.75rem,1.3vw,.95rem);letter-spacing:.25em;text-transform:lowercase;color:rgba(245,240,230,.8);}
+
+/* ── CTA ─────────────────────────────────────── */
+.cta{background:var(--espresso);text-align:center;padding:100px var(--gutter);}
+.cta .section-label{color:var(--terracotta);}
+.cta-headline{font-family:var(--font-serif);font-weight:300;font-size:clamp(2rem,4vw,3rem);color:var(--cream);margin-bottom:10px;}
+.cta-sub{font-family:var(--font-sans);font-weight:200;font-size:1rem;color:var(--cream-50);margin-bottom:40px;letter-spacing:.05em;}
+.cta .btn-primary{display:inline-block;padding:16px 42px;font-size:10px;}
+.cta-line{width:48px;height:1px;background:var(--terracotta);margin:0 auto 32px;}
+
+/* ── FOOTER ──────────────────────────────────── */
+footer{background:var(--espresso);color:var(--cream-50);text-align:center;padding:80px 52px 48px;}
+.footer-logo{font-family:var(--font-bayer);font-size:28px;letter-spacing:.15em;text-transform:lowercase;color:var(--sand);margin-bottom:10px;}
+.footer-tagline{font-family:var(--font-serif);font-style:italic;font-size:1rem;color:var(--terra-50);margin-bottom:36px;}
+.footer-links{list-style:none;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:32px;}
+.footer-links a{font-family:var(--font-bayer);font-size:8px;letter-spacing:.25em;text-transform:lowercase;color:var(--terra-50);text-decoration:none;transition:color .3s;}
+.footer-links a:hover{color:var(--sand);}
+.footer-copy{font-family:var(--font-bayer);font-size:8px;letter-spacing:.2em;text-transform:lowercase;color:rgba(245,240,230,.25);}
+footer .divider{width:60px;height:1px;background:var(--terra-20);margin:0 auto 36px;}
+.footer-address{font-family:var(--font-sans);font-weight:300;font-size:.85rem;color:var(--terra-50);margin-bottom:24px;}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:900px){
+  :root{--gutter:28px;}
+  nav{padding:20px 24px;}
+  nav.scrolled{padding:14px 24px;}
+  .nav-links{display:none;}
+  .two-col{grid-template-columns:1fr;gap:40px;}
+  .two-col.reverse{direction:ltr;}
+  .pillars{grid-template-columns:1fr;}.pillar{height:400px;}
+  .schedule-grid{grid-template-columns:1fr;}
+  .schedule-block:nth-child(odd){border-right:none;}
+  .inc-grid{grid-template-columns:1fr 1fr;}
+  .test-grid{grid-template-columns:1fr;}
+  .hero-headline{letter-spacing:.03em;}
+}
+@media(max-width:600px){
+  .inc-grid{grid-template-columns:1fr;}
+  .dates-row{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ NAV ════════════════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">bikini bootcamp</a>
+  <ul class="nav-links">
+    <li><a href="#experience" class="active">the experience</a></li>
+    <li><a href="#schedule">schedule</a></li>
+    <li><a href="#included">what's included</a></li>
+    <li><a href="#dates">dates</a></li>
+  </ul>
+  <a href="https://www.bikinibootcamp.com" class="nav-book">book now</a>
+</nav>
+
+<!-- ════════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-label">amansala &middot; tulum, mexico</p>
+    <h1 class="hero-headline">
+      bikini bootcamp
+      <span class="hero-headline-serif">A holiday with purpose</span>
+    </h1>
+    <p class="hero-sub">The ultimate solo holiday &middot; Reconnect to yourself &middot; Reconnect with nature</p>
+    <div class="hero-btns">
+      <a href="https://www.bikinibootcamp.com" class="btn-primary">reserve your retreat</a>
+      <a href="#experience" class="btn-secondary">explore the experience</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span></span>
+    <small>scroll</small>
+  </div>
+</section>
+
+<!-- ════════════════════ BEYOND A RETREAT ═══════ -->
+<section class="section-pad" style="background:var(--cream);" id="experience">
+  <div class="two-col">
+    <div>
+      <div class="decorative-line fade-up"></div>
+      <p class="section-label fade-up">beyond a retreat</p>
+      <h2 class="section-headline fade-up d1">A mind-body-spirit<br/>reset</h2>
+      <p class="section-body fade-up d2">
+        Bikini Bootcamp Tulum is where personal transformation meets profound natural and cultural connection. A fitness vacation with purpose that sends you home looking and feeling better than when you arrived.
+      </p>
+      <p class="section-body fade-up d3" style="margin-top:16px;">
+        Experience the true spirit of Tulum &mdash; not just the trend, but the ancient heartbeat. Our deep roots here (25+ years) allow us to offer authentic wellness retreats that combine cultural and spiritual experiences with world-class fitness programming.
+      </p>
+    </div>
+    <div class="two-col-img fade-up d2">
+      <img src="mothersday-images/beach-woman.jpg" alt="Woman on the beach in Tulum" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ THREE PILLARS ═════════ -->
+<section class="pillars">
+  <div class="pillar fade-up">
+    <img src="mothersday-images/rooftop-fitness.jpg" alt="Beach fitness workout at Amansala" loading="lazy"/>
+    <div class="pillar-overlay"></div>
+    <div class="pillar-content">
+      <p class="pillar-title">reset your rhythm</p>
+      <h3 class="pillar-headline">Move your body</h3>
+      <p class="pillar-desc">Beach bootcamps, yoga, circuit training, dance, boxing, pilates &mdash; every day brings a new way to feel strong, free, and alive.</p>
+    </div>
+  </div>
+  <div class="pillar fade-up d1">
+    <img src="mothersday-images/watermelon.jpg" alt="Healthy cuisine at Amansala" loading="lazy"/>
+    <div class="pillar-overlay"></div>
+    <div class="pillar-content">
+      <p class="pillar-title">nourish from within</p>
+      <h3 class="pillar-headline">Eat beautifully</h3>
+      <p class="pillar-desc">From the earth to your plate &mdash; vibrant Mexican wellness cuisine blended with global influences. Each meal crafted to energize your body.</p>
+    </div>
+  </div>
+  <div class="pillar fade-up d2">
+    <img src="mothersday-images/ceremony-hands.jpg" alt="Wellness ritual at Amansala" loading="lazy"/>
+    <div class="pillar-overlay"></div>
+    <div class="pillar-content">
+      <p class="pillar-title">reclaim your joy</p>
+      <h3 class="pillar-headline">Find your center</h3>
+      <p class="pillar-desc">Meditation, journaling, Mayan ceremonies, cacao rituals, and breathwork &mdash; ancient practices to quiet the mind and open the heart.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SOLO HOLIDAY ══════════ -->
+<section class="section-pad" style="background:var(--sand);padding-bottom:100px;">
+  <div style="text-align:center;max-width:700px;margin:0 auto;">
+    <div class="decorative-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="section-label fade-up">the ultimate solo holiday</p>
+    <h2 class="section-headline fade-up d1" style="font-size:clamp(2.2rem,4.5vw,3.5rem);">A holiday with purpose</h2>
+    <p class="section-body fade-up d2" style="text-align:center;max-width:580px;margin:0 auto;">
+      Many arrive alone and leave with lifelong friends. This isn't just a fitness retreat &mdash; it's the ultimate solo holiday where you'll reconnect to yourself, your strength, and your joy.
+    </p>
+    <p style="font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(1.2rem,2.5vw,1.7rem);line-height:1.5;color:var(--espresso);margin-top:32px;max-width:600px;margin-left:auto;margin-right:auto;" class="fade-up d3">
+      &ldquo;We promise to send you home looking and feeling better than when you arrived&rdquo;
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════ PULL QUOTE ════════════ -->
+<div class="pull-quote fade-up" style="background:var(--espresso);">
+  <p class="pull-quote-text" style="color:var(--cream);">It's not about perfection. It's about <em>wellness</em>, <em>connection</em>, and <em>transformation</em></p>
+</div>
+
+<!-- ════════════════════ THE EXPERIENCE ════════ -->
+<section class="section-pad" style="background:var(--cream);">
+  <div class="two-col reverse">
+    <div class="two-col-img fade-up">
+      <img src="mothersday-images/pool-ocean.jpg" alt="Amansala beachfront pool" loading="lazy"/>
+    </div>
+    <div>
+      <div class="decorative-line fade-up"></div>
+      <p class="section-label fade-up">the experience</p>
+      <h2 class="section-headline fade-up d1">Not just a break &mdash;<br/>a breakthrough</h2>
+      <p class="section-body fade-up d2">
+        Connect to your inner self and nature through yoga, varied movement classes, healthy eating, beachside pampering, and connecting with like-minded individuals.
+      </p>
+      <p class="section-body fade-up d3" style="margin-top:16px;">
+        This isn't just a fitness retreat. It's the ultimate solo vacation where many arrive alone and leave with lifelong friends. We bring together inspiring teachers from around the world to guide you through yoga, bootcamps, meditation, and fun.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FULL IMAGE ════════════ -->
+<div class="full-img">
+  <img src="mothersday-images/aerial-resort.jpg" alt="Aerial view of Amansala resort in Tulum" loading="lazy"/>
+  <div class="full-img-overlay"></div>
+  <div class="full-img-text">
+    <p>25+ years on the shores of tulum</p>
+  </div>
+</div>
+
+<!-- ════════════════════ SCHEDULE ══════════════ -->
+<section class="section-pad" style="background:var(--sand);" id="schedule">
+  <div style="text-align:center;max-width:600px;margin:0 auto 60px;">
+    <div class="decorative-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="section-label fade-up">a day at bootcamp</p>
+    <h2 class="section-headline fade-up d1">Your daily rhythm</h2>
+    <p class="section-body fade-up d2" style="text-align:center;max-width:480px;margin:0 auto;">Every day is a new adventure &mdash; here's what a typical day looks like</p>
+  </div>
+  <div class="schedule-grid">
+    <div class="schedule-block fade-up">
+      <p class="schedule-time">7:00 am</p>
+      <h3 class="schedule-activity">Morning Pages</h3>
+      <p class="schedule-desc">Journaling with ocean views &mdash; set your intentions for the day</p>
+    </div>
+    <div class="schedule-block fade-up d1">
+      <p class="schedule-time">7:15 am</p>
+      <h3 class="schedule-activity">Guided Meditation</h3>
+      <p class="schedule-desc">15 minutes of mindfulness to center and ground yourself</p>
+    </div>
+    <div class="schedule-block fade-up">
+      <p class="schedule-time">7:30 am</p>
+      <h3 class="schedule-activity">Beach Walk &amp; Workout</h3>
+      <p class="schedule-desc">Silent first 10 minutes, then a brisk pace along the Caribbean shore</p>
+    </div>
+    <div class="schedule-block fade-up d1">
+      <p class="schedule-time">8:30 am</p>
+      <h3 class="schedule-activity">Vinyasa Yoga</h3>
+      <p class="schedule-desc">Flow through postures in our open-air beachside shala</p>
+    </div>
+    <div class="schedule-block fade-up">
+      <p class="schedule-time">10:00 am</p>
+      <h3 class="schedule-activity">Circuit Training</h3>
+      <p class="schedule-desc">High-energy warm-up and strength exercises on the beach</p>
+    </div>
+    <div class="schedule-block fade-up d1">
+      <p class="schedule-time">afternoon</p>
+      <h3 class="schedule-activity">Dance, Pilates or Boxing</h3>
+      <p class="schedule-desc">Varied movement &mdash; sculpt and tone, cardio, or learn new skills</p>
+    </div>
+    <div class="schedule-block fade-up">
+      <p class="schedule-time">free time</p>
+      <h3 class="schedule-activity">Tours &amp; Exploration</h3>
+      <p class="schedule-desc">Tulum Ruins, mangrove paddling, Gran Cenote &mdash; every other day</p>
+    </div>
+    <div class="schedule-block fade-up d1">
+      <p class="schedule-time">evening</p>
+      <h3 class="schedule-activity">Yin Yoga &amp; Dinner</h3>
+      <p class="schedule-desc">Gentle wind-down, then beachfront dining under the stars</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ WHAT'S INCLUDED ═══════ -->
+<section class="section-pad" style="background:var(--cream);" id="included">
+  <div style="text-align:center;max-width:600px;margin:0 auto 60px;">
+    <div class="decorative-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="section-label fade-up">what's included</p>
+    <h2 class="section-headline fade-up d1">Everything you need</h2>
+    <p class="section-body fade-up d2" style="text-align:center;max-width:480px;margin:0 auto;">On stays of 5 nights or more</p>
+  </div>
+  <div class="inc-grid">
+    <div class="inc-card fade-up d1">
+      <span class="inc-icon">&#129495;</span>
+      <h3 class="inc-title">Daily Yoga &amp; Meditation</h3>
+      <p class="inc-desc">Vinyasa flow, yin yoga, guided meditation, and beach walks every morning</p>
+    </div>
+    <div class="inc-card fade-up d2">
+      <span class="inc-icon">&#128170;</span>
+      <h3 class="inc-title">Fitness Classes</h3>
+      <p class="inc-desc">Beach bootcamp, circuit training, dance, pilates, boxing &amp; sculpt sessions</p>
+    </div>
+    <div class="inc-card fade-up d3">
+      <span class="inc-icon">&#128134;</span>
+      <h3 class="inc-title">2 Spa Treatments</h3>
+      <p class="inc-desc">Your choice of massage, facial, or reflexology at our beachfront spa</p>
+    </div>
+    <div class="inc-card fade-up d1">
+      <span class="inc-icon">&#128506;</span>
+      <h3 class="inc-title">3 Local Tours</h3>
+      <p class="inc-desc">Tulum Ruins, mangrove paddling, and Gran Cenote excursions</p>
+    </div>
+    <div class="inc-card fade-up d2">
+      <span class="inc-icon">&#127869;</span>
+      <h3 class="inc-title">All Meals</h3>
+      <p class="inc-desc">Breakfast with green juice, vibrant lunch salads, and beautiful dinners</p>
+    </div>
+    <div class="inc-card fade-up d3">
+      <span class="inc-icon">&#127807;</span>
+      <h3 class="inc-title">Mayan Clay Meditation</h3>
+      <p class="inc-desc">A sacred beach ceremony with mineral-rich clay &mdash; grounding and detoxifying</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 6-DAY PACKAGE ════════ -->
+<section style="background:var(--sand);padding:100px var(--gutter);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:var(--max-w);margin:0 auto;">
+    <div>
+      <div class="decorative-line fade-up"></div>
+      <p class="section-label fade-up">a holiday with purpose</p>
+      <h2 style="font-family:var(--font-serif);font-weight:300;font-size:clamp(2.2rem,4.5vw,3.5rem);line-height:1.1;color:var(--nearblack);margin-bottom:12px;" class="fade-up d1">Our 6-day retreat<br/>package includes:</h2>
+      <div style="width:48px;height:1px;background:var(--terracotta);margin:24px 0;" class="fade-up d2"></div>
+      <ul style="list-style:none;padding:0;" class="fade-up d3">
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Morning Beach Walk</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Morning Vinyasa Yoga</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Mid-Morning Fitness (Circuit Training, Sculpting Class, HIIT)</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Afternoon Sculpting (Dance, Barre, Pilates)</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> 2 Spa Services (based on six days)</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Tours to Local Tulum Highlights</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Evening Yin Yoga</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Healthy &amp; Delicious Bikini Bootcamp Menu</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;border-bottom:1px solid var(--terra-20);display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Accommodations</li>
+        <li style="font-family:var(--font-sans);font-weight:300;font-size:1.05rem;color:var(--espresso);padding:10px 0;display:flex;align-items:baseline;gap:12px;"><span style="color:var(--terracotta);font-size:.7rem;">&#9679;</span> Other activities to send you home looking and feeling better</li>
+      </ul>
+      <p style="font-family:var(--font-sans);font-weight:300;font-size:.85rem;color:var(--terracotta);margin-top:20px;" class="fade-up d4">Please note: shared rooms can only be booked by two friends traveling together.</p>
+    </div>
+    <div style="text-align:center;" class="fade-up d2">
+      <div style="background:var(--espresso);padding:60px 40px;border-radius:2px;">
+        <p style="font-family:var(--font-bayer);font-size:9px;letter-spacing:.35em;text-transform:lowercase;color:var(--terracotta);margin-bottom:20px;">the ultimate solo holiday</p>
+        <h3 style="font-family:var(--font-serif);font-weight:300;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--cream);line-height:1.3;margin-bottom:20px;">We promise to send you home looking and feeling better than when you arrived</h3>
+        <div style="width:48px;height:1px;background:var(--terracotta);margin:24px auto;"></div>
+        <p style="font-family:var(--font-sans);font-weight:300;font-size:.95rem;color:var(--cream-70);line-height:1.7;">
+          6 days of yoga, fitness, spa, nourishing meals, tours, and transformation on the shores of Tulum, Mexico.
+        </p>
+        <a href="https://www.bikinibootcamp.com" class="btn-primary" style="display:inline-block;margin-top:32px;padding:16px 42px;font-size:10px;">book your retreat</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ TESTIMONIALS ══════════ -->
+<section class="section-pad" style="background:var(--sand);">
+  <div style="text-align:center;max-width:600px;margin:0 auto 60px;">
+    <div class="decorative-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="section-label fade-up">what they say</p>
+    <h2 class="section-headline fade-up d1">Words from our guests</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card fade-up d1">
+      <p class="test-quote">The most fun adult camp I was fortunate enough to attend. Amansala, thank you for giving me back a piece of who I am.</p>
+      <p class="test-author">jayel lewis &mdash; health, beauty &amp; wellness consultant</p>
+    </div>
+    <div class="test-card fade-up d2">
+      <p class="test-quote">Top yoga, fitness, dance and spiritual teachers! The food was incredibly fresh and delicious. This is a must go &mdash; book it now.</p>
+      <p class="test-author">tripadvisor review</p>
+    </div>
+    <div class="test-card fade-up d3">
+      <p class="test-quote">This massage was a completely new experience &mdash; an approach that combines powerful techniques with deep sensitivity to your needs.</p>
+      <p class="test-author">tripadvisor review</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ DATES ═════════════════ -->
+<section class="section-pad" style="background:var(--cream);" id="dates">
+  <div style="text-align:center;max-width:600px;margin:0 auto 50px;">
+    <div class="decorative-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="section-label fade-up">upcoming retreats</p>
+    <h2 class="section-headline fade-up d1">Choose your dates</h2>
+  </div>
+  <div class="dates-row fade-up d2">
+    <span class="date-chip">sept 22 &ndash; 28</span>
+    <span class="date-chip">oct 13 &ndash; 19</span>
+    <span class="date-chip">nov 6 &ndash; 12</span>
+    <span class="date-chip">dec 10 &ndash; 16</span>
+    <span class="date-chip">dec 22 &ndash; 28</span>
+    <span class="date-chip">dec 28 &ndash; jan 3</span>
+  </div>
+</section>
+
+<!-- ════════════════════ CTA ════════════════════ -->
+<section class="cta">
+  <p class="section-label fade-up">your transformation starts here</p>
+  <div class="cta-line fade-up d1"></div>
+  <h2 class="cta-headline fade-up d1">Ready for a holiday<br/>with purpose?</h2>
+  <p class="cta-sub fade-up d2">Feel the powerful energy of this sacred land and let it amplify your transformation</p>
+  <a href="https://www.bikinibootcamp.com" class="btn-primary fade-up d3">reserve your retreat</a>
+</section>
+
+<!-- ════════════════════ FOOTER ═════════════════ -->
+<footer>
+  <div class="footer-logo">bikini bootcamp</div>
+  <p class="footer-tagline">Where transformation meets the sea.</p>
+  <p class="footer-address">KM 5.5 Boca Paila &middot; Tulum, Mexico</p>
+  <div class="divider"></div>
+  <ul class="footer-links">
+    <li><a href="#">cancellation policy</a></li>
+    <li><a href="#">blog</a></li>
+    <li><a href="#">privacy policy</a></li>
+    <li><a href="#">terms</a></li>
+    <li><a href="#">faq</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 bikini bootcamp &middot; amansala tulum</p>
+</footer>
+
+<!-- ════════════════════ JS ═════════════════════ -->
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
